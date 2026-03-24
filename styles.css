@@ -2,6 +2,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  background: radial-gradient(#f5e5e5, #c6c7db);
 }
 
 header {
