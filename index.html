@@ -7,20 +7,38 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <header class="header"></header>
+    <header class="header">
+      <h3 class="headerTitle">ideas and colours</h3>
+    </header>
     <h1 class="pageTitle">Ideas for drawing and Colours</h1>
     <p class="description">
-      Web page made during review of HTML. Stores ideas for my art and documnets
-      all pretty colors I can use with default CSS and HEX.
+      Storage of ideas for my art and list of all pretty colours I can use with
+      CSS - HEX, RGB, colour names.
     </p>
     <div class="newColour">
-      <input type="text" class="colourNameInput" id="colourInput" />
-      <input type="text" class="colourHEXInput" id="colourHEXInput" />
+      <label for="colourNameInput" class="colourNameLabel">Colour name:</label>
+      <input
+        placeholder="ex. Pink"
+        type="text"
+        class="colourNameInput"
+        id="colourInput"
+      />
+      <label for="colourHEXInput" class="colourHEXLabel">Colour in HEX:</label>
+      <input
+        placeholder="ex. #FFC0CB"
+        type="text"
+        class="colourHEXInput"
+        id="colourHEXInput"
+      />
       <button class="addColourBtn" id="addColourBtn">Add Colour</button>
     </div>
     <div class="coloursBox">
       <ul class="colourProps" id="colourProps"></ul>
     </div>
+    <footer>
+      <p>Anna Vasileva</p>
+      <p>2026</p>
+    </footer>
     <script src="add-colours-and-ideas.js"></script>
   </body>
 </html>

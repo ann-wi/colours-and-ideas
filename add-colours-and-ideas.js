@@ -36,8 +36,8 @@ async function getColorsAPI() {
 
 const getColourItemTemplate = (data) => {
   return `
-  <li>
-    <div class="colour" style="background-color: ${data.hex}"></div>
+  <li class="colourItem">
+    <div class="colourDisplay" style="background-color: ${data.hex}; box-shadow: 10px 1px 5px ${data.hex};"></div>
     <h4 class="colourName" id="colourName">${data.name}</h4>
     <p class="colourHex" id="colourHex">${data.hex}</p>
   </li>
