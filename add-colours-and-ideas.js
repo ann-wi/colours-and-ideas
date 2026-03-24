@@ -3,32 +3,36 @@ const colourNameInput = document.querySelector('#colourInput');
 const colourHEXInput = document.querySelector('#colourHEXInput');
 const addColourBtn = document.querySelector('#addColourBtn');
 
-const colours = [
-  {
-    name: 'Green Yellow',
-    hex: '#adff2f',
-  },
-  { name: 'Pink', hex: '#ffc0cb' },
-  { name: 'Dark Magenta', hex: '#8b008b' },
-  {
-    name: 'Green Yellow',
-    hex: '#adff2f',
-  },
-  { name: 'Pink', hex: '#ffc0cb' },
-  { name: 'Dark Magenta', hex: '#8b008b' },
-  {
-    name: 'Green Yellow',
-    hex: '#adff2f',
-  },
-  { name: 'Pink', hex: '#ffc0cb' },
-  { name: 'Dark Magenta', hex: '#8b008b' },
-  {
-    name: 'Green Yellow',
-    hex: '#adff2f',
-  },
-  { name: 'Pink', hex: '#ffc0cb' },
-  { name: 'Dark Magenta', hex: '#8b008b' },
-];
+// let - because get error (assigmnet to constant variable from api)
+let coloursPage = [];
+
+const renderColours = (colors = []) => {
+  colourProps.innerHTML = '';
+
+  for (let i = 0; i < colors.length; i++) {
+    colourProps.insertAdjacentHTML(
+      'beforeend',
+      getColourItemTemplate(colors[i], i)
+    );
+  }
+};
+
+async function getColorsAPI() {
+  try {
+    // with API
+    // used CORS to get access
+    const response = await fetch(
+      'https://corsproxy.io/?https://jsonlint.com/datasets/colors.json'
+    );
+    const { colors } = await response.json();
+    coloursPage = colors;
+    renderColours(colors);
+    console.log(colors);
+  } catch (err) {
+    colourProps.style.color = 'red';
+    colourProps.innerHTML = `<h3>${err.message}</h3>`;
+  }
+}
 
 const getColourItemTemplate = (data) => {
   return `
@@ -40,20 +44,9 @@ const getColourItemTemplate = (data) => {
   `;
 };
 
-const renderColours = () => {
-  colourProps.innerHTML = '';
-
-  for (let i = 0; i < colours.length; i++) {
-    colourProps.insertAdjacentHTML(
-      'beforeend',
-      getColourItemTemplate(colours[i], i)
-    );
-    console.log(colours[i].hex);
-  }
-};
-
 renderColours();
 
+// new colours saved temporarely
 addColourBtn.addEventListener('click', () => {
   if (colourHEXInput.value.length === 0 && colourNameInput.value.length === 0) {
     return;
@@ -64,9 +57,11 @@ addColourBtn.addEventListener('click', () => {
     hex: colourHEXInput.value,
   };
 
-  colours.push(dataObj);
-  renderColours();
+  coloursPage.push(dataObj);
+  renderColours(coloursPage);
 
   colourHEXInput.value = '';
   colourNameInput.value = '';
 });
+
+getColorsAPI();
