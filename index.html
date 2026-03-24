@@ -13,17 +13,14 @@
       Web page made during review of HTML. Stores ideas for my art and documnets
       all pretty colors I can use with default CSS and HEX.
     </p>
-    <div class="coloursBox">
-      <div class="colourItem">
-        <span class="colour darkOrchid" id="colour"></span>
-        <ul class="colourProps" id="colourProps">
-          <li>
-            <h4 class="colourName" id="colourName">Dark Orchid</h4>
-          </li>
-          <li class="colourHex" id="colourHex">#932cc</li>
-          <li class="colourRgb" id="'colourRgb">rgb(153, 50, 204)</li>
-        </ul>
-      </div>
+    <div class="newColour">
+      <input type="text" class="colourNameInput" id="colourInput" />
+      <input type="text" class="colourHEXInput" id="colourHEXInput" />
+      <button class="addColourBtn" id="addColourBtn">Add Colour</button>
     </div>
+    <div class="coloursBox">
+      <ul class="colourProps" id="colourProps"></ul>
+    </div>
+    <script src="add-colours-and-ideas.js"></script>
   </body>
 </html>
