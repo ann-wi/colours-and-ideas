@@ -2,6 +2,8 @@
 
 Storage of ideas for my art and list of all pretty colours I can use with CSS - HEX, RGB, colour names.
 
+![app screenshot](./screenshots/ideas-and-colours.png)
+
 ## Current Features
 
 1. Add colour based on HEX with name.

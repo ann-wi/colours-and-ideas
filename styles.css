@@ -9,8 +9,18 @@ header {
   flex-direction: row;
 }
 
+.colourLogo {
+  width: 30px;
+  height: 30px;
+  border: 2px solid gray;
+  align-self: center;
+  border-radius: 30px;
+  margin-right: 15px;
+  background: radial-gradient(#ec8f8f, #9198e5);
+}
+
 .headerTitle {
-  color: blue;
+  color: rgb(153, 153, 182);
 }
 
 .colourDisplay {
